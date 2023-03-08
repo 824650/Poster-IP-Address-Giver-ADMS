@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dunno what to name this</title>
+    </head>
+    <body>
+        <div id="res"></div>
+        <div id="re2"></div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            var ip = null;
+            $.get("https://ipinfo.io", function(response){
+                $("#res").html("Your IP address is: " + response.ip);
+                ip = response.ip;
+            },"json");
+            
+            $.get("https://ipapi.co/" + ip + "/json/", function(response){
+                $("#re2").html("Your location is: " + response.city + ", " + response.region);
+            },"json");
+        </script>
+        Oh yeah, sorry for not styling the website but it serves the purpose
+        And your ip address is not logged
+    </body>
+</html>
